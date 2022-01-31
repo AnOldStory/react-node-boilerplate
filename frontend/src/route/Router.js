@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainContainer from "container/main/MainContainer";
 
 class Router extends Component {
@@ -7,11 +7,11 @@ class Router extends Component {
     return (
       <BrowserRouter basename="/">
         <>
-          <Switch>
+          <Routes>
             hello
-            <Route exact path="/" component={MainContainer} />
-            <Route path="/hello" render={(props) => "<Hello {...props} />"} />
-          </Switch>
+            <Route path="/" element={<MainContainer/>} />
+            <Route path="/hello/*" element={<MainContainer/>} />
+          </Routes>
         </>
       </BrowserRouter>
     );
